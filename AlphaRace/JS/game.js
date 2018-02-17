@@ -11,10 +11,24 @@ function drawBackground() {
 	gameCanvasContext.fillStyle = "#B6ACAC";
 	gameCanvasContext.fillRect(170,0,460,600); // Game-area background
 	gameCanvasContext.fillStyle = "#FFFFFF";
-	gameCanvasContext.fillRect(170,220,460,5); // Player 1's track
-	gameCanvasContext.fillRect(170,340,460,5); // Player 2's track
+	gameCanvasContext.fillRect(170,220,460,5); // Stands's track
+	gameCanvasContext.fillRect(170,280,460,5); //Player 1's track
+    gameCanvasContext.fillRect(170,340,460,5);// Player 2's track
+    gameCanvasContext.drawImage(backgroundStands, 170, 0);
+    gameCanvasContext.drawImage(backgroundForest,170, 345);
 }
 
+// Creating new background images
+var backgroundForest = new Image();
+var backgroundStands = new Image();
+backgroundForest.src = '../Images/embaixoPronto.png';
+backgroundStands.src = '../Images/arquibancadaUso.png';
+backgroundStands.onload = function() {
+     gameCanvasContext.drawImage(backgroundStands, 170, 0);
+}
+backgroundForest.onload = function() {
+    gameCanvasContext.drawImage(backgroundForest,170, 345);
+}
 // Begginning to draw Player 1's Gauge
 function drawGauges() {
 	gameCanvasContext.shadowBlur = 40;
@@ -114,6 +128,7 @@ function oscilateOscilator2() {
 
 // Declaring global variables for functions
 var gameStarted = 0; // This indicates to several functions whether the game has started
+//var load =0;
 var nowTime = new Date(); // This will be used by more than one function that calculates time in some way
 var startTime = 0;
 var elapsedTime = 0;
@@ -151,15 +166,14 @@ function updateElapsedTimeDisplay() {
 	}
 }
 
-// Initializing necessary functions and stating game loop
-
 drawBackground();
 drawGauges();
 drawOscilator1();
 drawOscilator2();
+
 function gameLoop() {
 	gameCanvasContext.shadowBlur = 0
-	drawBackground();
+    drawBackground();
 	drawGauges();
 	calculateElapsedTime();
 	updateElapsedTimeDisplay();
