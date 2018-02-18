@@ -110,6 +110,31 @@ function oscilateOscilator2() {
 	}
 }
 
+var player1 = {
+	x: 175,
+	y: 230,
+	spriteSrc: "HorseBlue.png"
+};
+
+var player2 = {
+	x: 175,
+	y: 290,
+	spriteSrc: "HorseRed.png"
+};
+
+	player1Sprite = new Image();
+	player1Sprite.src = player1.spriteSrc;
+	player2Sprite = new Image();
+	player2Sprite.src = player2.spriteSrc;
+
+function drawPlayer1() {
+	gameCanvasContext.drawImage(player1Sprite, player1.x, player1.y);
+}
+
+function drawPlayer2() {
+	gameCanvasContext.drawImage(player2Sprite, player2.x, player2.y);
+}
+
 // End Canvas' Drawings
 
 // Declaring global variables for functions
@@ -143,20 +168,85 @@ function calculateElapsedTime() {
 }
 
 function updateElapsedTimeDisplay() {
-	if (elapsedTimeSec < 10) {
-		document.getElementById("timeElapsedClock").innerHTML = '0' + elapsedTimeSec + ':' + elapsedTimeMillisec.toString().substr(0,2);
+	if (elapsedTimeMin == 0) {
+		if (elapsedTimeSec < 10) {
+			document.getElementById("timeElapsedClock").innerHTML = '0' + elapsedTimeSec + ':' + elapsedTimeMillisec.toString().substr(0,2);
+		}
+		else {
+			document.getElementById("timeElapsedClock").innerHTML = elapsedTimeSec + ':' + elapsedTimeMillisec.toString().substr(0,2);
+		}
 	}
 	else {
-		document.getElementById("timeElapsedClock").innerHTML = elapsedTimeSec + ':' + elapsedTimeMillisec.toString().substr(0,2);
+		if (elapsedTimeMin < 10) {
+			if (elapsedTimeSec < 10) {
+				document.getElementById("timeElapsedClock").innerHTML = '0' + elapsedTimeMin + ':' + '0' + elapsedTimeSec + ':' + elapsedTimeMillisec.toString().substr(0,2);
+			}
+			else {
+				document.getElementById("timeElapsedClock").innerHTML = '0' + elapsedTimeMin + ':' + elapsedTimeSec + ':' + elapsedTimeMillisec.toString().substr(0,2);
+			}
+		}
+		else {
+			if (elapsedTimeSec < 10) {
+				document.getElementById("timeElapsedClock").innerHTML = elapsedTimeMin + ':' + '0' + elapsedTimeSec + ':' + elapsedTimeMillisec.toString().substr(0,2);
+			}
+			else {
+				document.getElementById("timeElapsedClock").innerHTML = elapsedTimeMin + ':' + elapsedTimeSec + ':' + elapsedTimeMillisec.toString().substr(0,2);
+			}
+		}
 	}
 }
 
-// Initializing necessary functions and stating game loop
+function player1Forward() {
+	if (gameStarted == 1) {
+		player1.x = player1.x + 5;
+	}
+	else {
+	}
+}
+
+function player2Forward() {
+	if (gameStarted == 1) {
+		player2.x = player2.x + 5;
+	}
+	else {
+	}
+}
+
+var player1KeyDown = false; // These two variables are needed to ensure the player won't just hold down the forward key.
+var player2KeyDown = false;
+
+function checkKeyDown(evt) {
+	if (evt.keyCode == 39 && player1KeyDown == false && player1.x < 560) { // if right arrow is pressed
+		player1Forward();
+		player1KeyDown = true;
+	}
+	else if (evt.keyCode == 68 && player2KeyDown == false && player2.x < 450) { // if D is pressed
+		player2Forward();
+		player2KeyDown = true;
+	}
+}
+
+function checkKeyUp(evt) {
+	if (evt.keyCode == 68) {
+		player2KeyDown = false;
+	}
+	else if (evt.keyCode == 39) {
+		player1KeyDown = false;
+	}
+}
+
+// Executing necessary functions, event listeners and stating game loop 
 
 drawBackground();
 drawGauges();
 drawOscilator1();
 drawOscilator2();
+player1Sprite.onload = drawPlayer1;
+player2Sprite.onload = drawPlayer2;
+
+window.addEventListener('keydown', checkKeyDown); // used for the checkKeyDown function, which allows players to move
+window.addEventListener('keyup', checkKeyUp); // Used to ensure players won't just hold down the forward key
+
 function gameLoop() {
 	gameCanvasContext.shadowBlur = 0
 	drawBackground();
@@ -167,4 +257,7 @@ function gameLoop() {
 	oscilateOscilator1();
 	drawOscilator2();
 	oscilateOscilator2();
+	drawPlayer1();
+	drawPlayer2();
 }
+
