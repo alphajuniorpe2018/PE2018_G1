@@ -12,17 +12,17 @@
 	</head>
 
 	<body>
-		<header class="jumbotron">
+		<header class="jumbotron jumbotron-fluid">
 			Alpha Race - v0.1
 		</header>
 		<main id="gameContainer">
-			<script type="text/javascript" src="../JS/game.js"> </script>
 			<span id="timeElapsedText">Time Elapsed:<br><span id="timeElapsedClock">00:00</span></span> <!-- Time Elapsed on the bottom-left corner. The clock should receive a JS script counting in seconds:miliseconds once Start is pressed -->
 			<button type="button" id="gameStartButton" class="btn btn-success gameButton"> START </button> <!-- Start button on the bottom-left corner. -->
 			<span id="gameStartText">Click or press Enter<br>to start </span> <!-- Start button's info text -->
 			<button type="button" id="leaderboardButton" class="btn btn-info gameButton"> See Leaderboards </button> <!-- Leaderboard button -->
 			<span id="roundResults"> <span id="roundResultsIntro">This round's results:</span><br>Player 1 finished in:<br><span id="player1Results" class="playerResults">--</span><br>Player 2 finished in:<br><span id="player2Results" class="playerResults">--</span></span> <!-- Round's results text -->
 		</main>
+		<script type="text/javascript" src="../JS/game.js"> </script>
 	</body>
 
 </html>

@@ -13,9 +13,9 @@ function drawBackground() {
 	gameCanvasContext.fillStyle = "#FFFFFF";
 	gameCanvasContext.fillRect(170,220,460,5); // Stands's track
 	gameCanvasContext.fillRect(170,280,460,5); //Player 1's track
-    gameCanvasContext.fillRect(170,340,460,5);// Player 2's track
-    gameCanvasContext.drawImage(backgroundStands, 170, 0);
-    gameCanvasContext.drawImage(backgroundForest,170, 345);
+	gameCanvasContext.fillRect(170,340,460,5);// Player 2's track
+	gameCanvasContext.drawImage(backgroundStands, 170, 0);
+	gameCanvasContext.drawImage(backgroundForest,170, 345);
 }
 
 // Creating new background images
@@ -24,10 +24,10 @@ var backgroundStands = new Image();
 backgroundForest.src = '../Images/Forest.png';
 backgroundStands.src = '../Images/Stands.png';
 backgroundStands.onload = function() {
-     gameCanvasContext.drawImage(backgroundStands, 170, 0);
+	 gameCanvasContext.drawImage(backgroundStands, 170, 0);
 }
 backgroundForest.onload = function() {
-    gameCanvasContext.drawImage(backgroundForest,170, 345);
+	gameCanvasContext.drawImage(backgroundForest,170, 345);
 }
 // Begginning to draw Player 1's Gauge
 function drawGauges() {
@@ -118,14 +118,14 @@ function newColor(){
 }
 // Player 1 colors
 function drawPlayer1ColorBox() {
-    gameCanvasContext.shadowBlur=10;
-    gameCanvasContext.shadowColor=blurColorBox1Player1;
-    gameCanvasContext.fillStyle = 'rgb(' + box1Player1.R + ',' + box1Player1.G + ',' + box1Player1.B + ')';
-    gameCanvasContext.fillRect(box1Player1.x,box1Player1.y,box1Player1.sizeX,box1Player1.sizeY);
-    gameCanvasContext.shadowColor=blurColorBox2Player1;
-    gameCanvasContext.fillStyle = 'rgb(' + box2Player1.R + ',' + box2Player1.G + ',' + box2Player1.B + ')';
-    gameCanvasContext.fillRect(box2Player1.x,box2Player1.y,box2Player1.sizeX,box2Player1.sizeY);
-    gameCanvasContext.shadowBlur=0;
+	gameCanvasContext.shadowBlur=10;
+	gameCanvasContext.shadowColor=blurColorBox1Player1;
+	gameCanvasContext.fillStyle = 'rgb(' + box1Player1.R + ',' + box1Player1.G + ',' + box1Player1.B + ')';
+	gameCanvasContext.fillRect(box1Player1.x,box1Player1.y,box1Player1.sizeX,box1Player1.sizeY);
+	gameCanvasContext.shadowColor=blurColorBox2Player1;
+	gameCanvasContext.fillStyle = 'rgb(' + box2Player1.R + ',' + box2Player1.G + ',' + box2Player1.B + ')';
+	gameCanvasContext.fillRect(box2Player1.x,box2Player1.y,box2Player1.sizeX,box2Player1.sizeY);
+	gameCanvasContext.shadowBlur=0;
 }
 function updatePlayer1ColorBox() {
 	box1Player1.x = newRandom(45,65);
@@ -162,44 +162,44 @@ function updatePlayer1ColorBox() {
 // Player 2 colors
 
 function drawPlayer2ColorBox() {
-    gameCanvasContext.shadowBlur = 10;
-    gameCanvasContext.shadowColor = blurColorBox1Player2;
-    gameCanvasContext.fillStyle = 'rgb(' + box1Player2.R + ',' + box1Player2.G + ',' + box1Player2.B + ')';
-    gameCanvasContext.fillRect(box1Player2.x,box1Player2.y,box1Player2.sizeX,box1Player2.sizeY);
-    gameCanvasContext.shadowColor = blurColorBox2Player2;
-    gameCanvasContext.fillStyle = 'rgb(' + box2Player2.R + ',' + box2Player2.G + ',' + box2Player2.B + ')';
-    gameCanvasContext.fillRect(box2Player2.x,box2Player2.y,box2Player2.sizeX,box2Player2.sizeY);
+	gameCanvasContext.shadowBlur = 10;
+	gameCanvasContext.shadowColor = blurColorBox1Player2;
+	gameCanvasContext.fillStyle = 'rgb(' + box1Player2.R + ',' + box1Player2.G + ',' + box1Player2.B + ')';
+	gameCanvasContext.fillRect(box1Player2.x,box1Player2.y,box1Player2.sizeX,box1Player2.sizeY);
+	gameCanvasContext.shadowColor = blurColorBox2Player2;
+	gameCanvasContext.fillStyle = 'rgb(' + box2Player2.R + ',' + box2Player2.G + ',' + box2Player2.B + ')';
+	gameCanvasContext.fillRect(box2Player2.x,box2Player2.y,box2Player2.sizeX,box2Player2.sizeY);
 	gameCanvasContext.shadowBlur = 0;
 }
 function updatePlayer2ColorBox() {
-    box1Player2.x = newRandom(675,695);
-    box1Player2.y = 50;
-    box1Player2.sizeX = newRandom(15,30);
-    box1Player2.sizeY = 34;
-    box2Player2.x = newRandom(705,725);
-    box2Player2.y = 50;
-    box2Player2.sizeX = newRandom(15,30);
-    box2Player2.sizeY = 34;
-      newColor();
-      if (randomColor<=0.5) {
-        box1Player2.R = 200;
-        box1Player2.G = 0;
-        box1Player2.B = 0;
-        blurColorBox1Player2='red';  
-        box2Player2.R = 0;
-        box2Player2.G = 200;
-        box2Player2.B = 0;
-        blurColorBox2Player2='green';
-      } else if(randomColor>0.5) {
-        box1Player2.R = 0;
-        box1Player2.G = 200;
-        box1Player2.B = 0;
-        blurColorBox1Player2='green';  
-        box2Player2.R = 200;
-        box2Player2.G = 0;
-        box2Player2.B = 0;
-        blurColorBox2Player2='red';
-      } 
+	box1Player2.x = newRandom(675,695);
+	box1Player2.y = 50;
+	box1Player2.sizeX = newRandom(15,30);
+	box1Player2.sizeY = 34;
+	box2Player2.x = newRandom(705,725);
+	box2Player2.y = 50;
+	box2Player2.sizeX = newRandom(15,30);
+	box2Player2.sizeY = 34;
+	  newColor();
+	  if (randomColor<=0.5) {
+		box1Player2.R = 200;
+		box1Player2.G = 0;
+		box1Player2.B = 0;
+		blurColorBox1Player2='red';  
+		box2Player2.R = 0;
+		box2Player2.G = 200;
+		box2Player2.B = 0;
+		blurColorBox2Player2='green';
+	  } else if(randomColor>0.5) {
+		box1Player2.R = 0;
+		box1Player2.G = 200;
+		box1Player2.B = 0;
+		blurColorBox1Player2='green';  
+		box2Player2.R = 200;
+		box2Player2.G = 0;
+		box2Player2.B = 0;
+		blurColorBox2Player2='red';
+	  } 
 }
 
 // Begginning to draw Player 1's Oscilator
@@ -291,26 +291,66 @@ function drawPlayer2() {
 
 // End Canvas' Drawings
 
+// Manipulating DOM
+
+document.getElementById('gameStartButton').addEventListener('click', startGame);
+
+// End DOM's Manipulation
+
 // Declaring global variables for functions
-var gameStarted = 0; // This indicates to several functions whether the game has started
+var gameStarted = false; // This indicates to several functions whether the game has started
 var gameEnded = false; // Indicates whether both players have reached the finish line
 var nowTime = new Date(); // This will be used by more than one function that calculates time in some way
 var startTime = 0;
 var elapsedTime = 0;
 var elapsedTimeSec = 0;
 var elapsedTimeMin = 0;
+var gameLoopIntervalID;
+var colorLoopIntervalID;
 
 // startButton's function: startGame. Initiates the game loop and attributes values to some needed variables.
 function startGame() {
-	if (gameStarted == 0) {
-		gameStarted = 1;
+	if (gameStarted == false) {
+		document.getElementById('gameStartButton').disabled = true;
+		gameStarted = true;
 		startTime = new Date();
-		setInterval(gameLoop, 5);
-        setInterval(loopColors, 2000);
+		gameLoopIntervalID = setInterval(gameLoop, 5);
+		colorLoopIntervalID = setInterval(loopColors, 2000);
+	}
+	else if (gameStarted == true && gameEnded == true) {
+		resetGame();
 	}
 	else {
 		alert("Game has already started!")
 	}
+}
+
+function resetGame() {
+	document.getElementById('gameStartButton').innerHTML = 'START';
+	document.getElementById('gameStartButton').classList.add('btn-success');
+	gameStarted = false;
+	gameEnded = false;
+	player1.x = 175;
+	player2.x = 175;
+	clearInterval(gameLoopIntervalID);
+	clearInterval(colorLoopIntervalID);
+	player1FinishedRound = false;
+	player2FinishedRound = false;
+	document.getElementById('player1Results').innerHTML = '--'
+	document.getElementById('player2Results').innerHTML = '--'
+	player1FinishTime = null;
+	player2FinishTime = null;
+	startTime = null;
+	nowTime = null;
+	gameLoop();
+	document.getElementById('timeElapsedClock').innerHTML = '00:00';
+}
+
+function endGame() {
+	document.getElementById('gameStartButton').disabled = false;
+	document.getElementById('gameStartButton').innerHTML = 'RESET';
+	document.getElementById('gameStartButton').classList.remove('btn-success')
+	document.getElementById('gameStartButton').classList.add('btn-primary');
 }
 
 // Calculates how much time has passed since startGame. Needs to be in the game loop to work properly, but would preferably be in its own independent loop.
@@ -353,7 +393,7 @@ function updateElapsedTimeDisplay() {
 }
 
 function player1Forward() {
-	if (gameStarted == 1) {
+	if (gameStarted == true) {
 		player1.x = player1.x + 20;
 		if (player1.x >= 560) {
 			player1.x = 560;
@@ -365,7 +405,7 @@ function player1Forward() {
 }
 
 function player2Forward() {
-	if (gameStarted == 1) {
+	if (gameStarted == true) {
 		player2.x = player2.x + 20;
 		if (player2.x >= 560) {
 			player2.x = 560;
@@ -386,7 +426,9 @@ function finishRoundPlayer1() {
 	player1FinishTime = elapsedTime;
 	document.getElementById('player1Results').innerHTML = player1FinishTime.toString().slice(0,-1) + '&nbsp;secs';
 	if (player2FinishedRound == true) {
+		gameLoop(); // Need to draw one last time so that the 2nd place is updated and drawn again. Without this, the 2nd place will stand a few pixels behind the 1st, instead of over the finish line.
 		gameEnded = true;
+		endGame();
 	}
 }
 
@@ -395,7 +437,9 @@ function finishRoundPlayer2() {
 	player2FinishTime = elapsedTime;
 	document.getElementById('player2Results').innerHTML = player2FinishTime.toString().slice(0,-1) + '&nbsp;secs';
 	if (player1FinishedRound == true) {
+		gameLoop();
 		gameEnded = true;
+		endGame();
 	}
 }
 
@@ -457,6 +501,6 @@ function gameLoop() {
 }
 
 function loopColors(){
-    updatePlayer1ColorBox();
-    updatePlayer2ColorBox();
+	updatePlayer1ColorBox();
+	updatePlayer2ColorBox();
 }
