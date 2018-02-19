@@ -18,10 +18,10 @@
 		<main id="gameContainer">
 			<script type="text/javascript" src="../JS/game.js"> </script>
 			<span id="timeElapsedText">Time Elapsed:<br><span id="timeElapsedClock">00:00</span></span> <!-- Time Elapsed on the bottom-left corner. The clock should receive a JS script counting in seconds:miliseconds once Start is pressed -->
-			<button type="button" id="gameStartButton" class="btn btn-success gameButton" onclick="startGame()"> START </button> <!-- Start button on the bottom-left corner. -->
+			<button type="button" id="gameStartButton" class="btn btn-success gameButton"> START </button> <!-- Start button on the bottom-left corner. -->
 			<span id="gameStartText">Click or press Enter<br>to start </span> <!-- Start button's info text -->
 			<button type="button" id="leaderboardButton" class="btn btn-info gameButton"> See Leaderboards </button> <!-- Leaderboard button -->
-			<span id="roundResults"> This round's results:<br><span id="player1Results">Player 1 finished in: 10.29 secs</span><br><span id="player2Results">Player 2 finished in: 15.20 secs</span></span> <!-- Round's results text -->
+			<span id="roundResults"> <span id="roundResultsIntro">This round's results:</span><br>Player 1 finished in:<br><span id="player1Results" class="playerResults">--</span><br>Player 2 finished in:<br><span id="player2Results" class="playerResults">--</span></span> <!-- Round's results text -->
 		</main>
 	</body>
 

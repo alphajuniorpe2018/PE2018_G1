@@ -61,10 +61,27 @@ body {
 
 #roundResults {
 	position:absolute;
-	left:636px;
-	top:460px;
+	left:644px;
+	top:430px;
 	text-align:center;
 	color:white;
 	font-size:0.75rem;
+}
+
+.playerResults {
+	font-weight: bold;
+}
+
+#roundResultsIntro {
+	font-weight:900;
+	font-size:0.9rem;
+}
+
+#player1Results {
+	color: #1111AA;
+}
+
+#player2Results {
+	color: #AA2222;
 }
 
