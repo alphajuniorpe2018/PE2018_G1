@@ -209,7 +209,8 @@ var oscilator1 = {
 	y: 46,
 	width: 3,
 	height:42,
-	gear: 0
+	gear: 0,
+	color: null
 };
 
 function drawOscilator1() {
@@ -240,7 +241,8 @@ var oscilator2 = {
 	y: 46,
 	width: 3,
 	height:42,
-	gear: 0
+	gear: 0,
+	onColor: null
 };
 
 function drawOscilator2() {
@@ -261,6 +263,62 @@ function oscilateOscilator2() {
 		if (oscilator2.x == 659) {
 			oscilator2.gear = 0;
 		}
+	}
+}
+
+function getOscilator1OnColor() {
+	if (oscilator1.x >= box1Player1.x && oscilator1.x <= (box1Player1.x + box1Player1.sizeX)) { // Check if oscilator is within the boundaries of player 1's first box
+		if (box1Player1.R == 200) {
+			oscilator1.onColor = "Red";
+		}
+		else if (box1Player1.G == 200) {
+			oscilator1.onColor = "Green";
+		}
+		else {
+			oscilator1.onColor = "White";
+		}
+	}
+	else if (oscilator1.x >= box2Player1.x && oscilator1.x <= (box2Player1.x + box2Player1.sizeX)) { // Check if oscilator is within the boundaries of player 1's second box
+		if (box2Player1.R == 200) {
+			oscilator1.onColor = "Red";
+		}
+		else if (box2Player1.G == 200) {
+			oscilator1.onColor = "Green";
+		}
+		else {
+			oscilator1.onColor = "White";
+		}
+	}
+	else {
+		oscilator1.onColor = "White";
+	}
+}
+
+function getOscilator2OnColor() {
+	if (oscilator1.x >= box1Player2.x && oscilator2.x <= (box1Player2.x + box1Player2.sizeX)) { // Check if oscilator is within the boundaries of player 2's first box
+		if (box1Player2.R == 200) {
+			oscilator1.onColor = "Red";
+		}
+		else if (box1Player2.G == 200) {
+			oscilator1.onColor = "Green";
+		}
+		else {
+			oscilator2.onColor = "White";
+		}
+	}
+	else if (oscilator2.x >= box2Player2.x && oscilator2.x <= (box2Player2.x + box2Player2.sizeX)) { // Check if oscilator is within the boundaries of player 2's second box
+		if (box2Player2.R == 200) {
+			oscilator2.onColor = "Red";
+		}
+		else if (box2Player2.G == 200) {
+			oscilator2.onColor = "Green";
+		}
+		else {
+			oscilator2.onColor = "White";
+		}
+	}
+	else {
+		oscilator2.onColor = "White";
 	}
 }
 
@@ -394,25 +452,37 @@ function updateElapsedTimeDisplay() {
 
 function player1Forward() {
 	if (gameStarted == true) {
-		player1.x = player1.x + 20;
-		if (player1.x >= 560) {
-			player1.x = 560;
-			finishRoundPlayer1();
+		if (oscilator1.onColor == "White") {
+			player1.x = player1.x + 5;
+		}
+		else if  (oscilator1.onColor == "Red") {
+			player1.x = player1.x - 10;
+		}
+		else if  (oscilator1.onColor == "Green") {
+			player1.x = player1.x + 20;
 		}
 	}
-	else {
+	if (player1.x >= 560) {
+		player1.x = 560;
+		finishRoundPlayer1();
 	}
 }
 
 function player2Forward() {
 	if (gameStarted == true) {
-		player2.x = player2.x + 20;
-		if (player2.x >= 560) {
-			player2.x = 560;
-			finishRoundPlayer2();
+		if (oscilator2.onColor == "White") {
+			player2.x = player2.x + 5;
+		}
+		else if  (oscilator2.onColor == "Red") {
+			player2.x = player2.x - 10;
+		}
+		else if  (oscilator2.onColor == "Green") {
+			player2.x = player2.x + 20;
 		}
 	}
-	else {
+	if (player2.x >= 560) {
+		player2.x = 560;
+		finishRoundPlayer2();
 	}
 }
 
@@ -466,6 +536,8 @@ function checkKeyUp(evt) {
 	}
 }
 
+
+
 // Executing necessary functions, event listeners and stating game loop 
 
 drawBackground();
@@ -493,8 +565,10 @@ function gameLoop() {
 		updateElapsedTimeDisplay();
 		drawOscilator1();
 		oscilateOscilator1();
+		getOscilator1OnColor();
 		drawOscilator2();
 		oscilateOscilator2();
+		getOscilator2OnColor();
 		drawPlayer1();
 		drawPlayer2();
 	}
