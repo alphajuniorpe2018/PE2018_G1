@@ -14,20 +14,26 @@ function drawBackground() {
 	gameCanvasContext.fillRect(170,220,460,5); // Stands's track
 	gameCanvasContext.fillRect(170,280,460,5); //Player 1's track
 	gameCanvasContext.fillRect(170,340,460,5);// Player 2's track
-	gameCanvasContext.drawImage(backgroundStands, 170, 0);
-	gameCanvasContext.drawImage(backgroundForest,170, 345);
+	gameCanvasContext.drawImage(backgroundStands,170,0);
+	gameCanvasContext.drawImage(backgroundForest,170,345);
+	gameCanvasContext.drawImage(backgroundFinishLine,590,220);
 }
 
 // Creating new background images
 var backgroundForest = new Image();
 var backgroundStands = new Image();
+var backgroundFinishLine = new Image();
 backgroundForest.src = '../Images/Forest.png';
 backgroundStands.src = '../Images/Stands.png';
+backgroundFinishLine.src = '../Images/FinishLine.png'
 backgroundStands.onload = function() {
-	 gameCanvasContext.drawImage(backgroundStands, 170, 0);
+	 gameCanvasContext.drawImage(backgroundStands,170,0);
 }
 backgroundForest.onload = function() {
-	gameCanvasContext.drawImage(backgroundForest,170, 345);
+	gameCanvasContext.drawImage(backgroundForest,170,345);
+}
+backgroundFinishLine.onload = function() {
+	gameCanvasContext.drawImage(backgroundFinishLine,590,220);
 }
 // Begginning to draw Player 1's Gauge
 function drawGauges() {
@@ -457,6 +463,9 @@ function player1Forward() {
 		}
 		else if  (oscilator1.onColor == "Red") {
 			player1.x = player1.x - 10;
+			if (player1.x < 175) {
+				player1.x = 175;
+			}
 		}
 		else if  (oscilator1.onColor == "Green") {
 			player1.x = player1.x + 20;
@@ -475,6 +484,9 @@ function player2Forward() {
 		}
 		else if  (oscilator2.onColor == "Red") {
 			player2.x = player2.x - 10;
+			if (player2.x < 175) {
+				player2.x = 175;
+			}
 		}
 		else if  (oscilator2.onColor == "Green") {
 			player2.x = player2.x + 20;
