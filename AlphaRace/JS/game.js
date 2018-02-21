@@ -38,7 +38,7 @@ backgroundFinishLine.onload = function() {
 // Begginning to draw Player 1's Gauge
 function drawGauges() {
 	gameCanvasContext.shadowBlur = 40;
-	gameCanvasContext.shadowColor = "rgba(255,180,180,0.5)"; // Red aura
+	gameCanvasContext.shadowColor = "rgba(180,180,255,0.5)"; // Blue aura
 	gameCanvasContext.fillStyle = "#FFFFFF";
 	gameCanvasContext.beginPath();
 	gameCanvasContext.moveTo(45, 50);
@@ -52,7 +52,7 @@ function drawGauges() {
 
 	// Begginning to draw Player 2's Gauge
 	gameCanvasContext.shadowBlur = 40;
-	gameCanvasContext.shadowColor = "rgba(180,180,255,0.5)"; // Blue aura
+	gameCanvasContext.shadowColor = "rgba(255,180,180,0.5)"; // Red aura
 	gameCanvasContext.fillStyle = "#FFFFFF";
 	gameCanvasContext.beginPath();
 	gameCanvasContext.moveTo(675,50)
@@ -375,17 +375,17 @@ var colorLoopIntervalID;
 // startButton's function: startGame. Initiates the game loop and attributes values to some needed variables.
 function startGame() {
 	if (gameStarted == false) {
-		document.getElementById('gameStartButton').disabled = true;
+		document.getElementById('gameStartButton').disabled = false;
+		document.getElementById('gameStartButton').innerHTML = 'RESET';
+		document.getElementById('gameStartButton').classList.remove('btn-success')
+		document.getElementById('gameStartButton').classList.add('btn-primary');
 		gameStarted = true;
 		startTime = new Date();
 		gameLoopIntervalID = setInterval(gameLoop, 5);
 		colorLoopIntervalID = setInterval(loopColors, 2000);
 	}
-	else if (gameStarted == true && gameEnded == true) {
-		resetGame();
-	}
 	else {
-		alert("Game has already started!")
+		resetGame();
 	}
 }
 
@@ -406,15 +406,21 @@ function resetGame() {
 	player2FinishTime = null;
 	startTime = null;
 	nowTime = null;
+	oscilator1.x = 29;
+	oscilator2.x = 659;
+	oscilator1.gear = 0;
+	oscilator2.gear = 0;
 	gameLoop();
 	document.getElementById('timeElapsedClock').innerHTML = '00:00';
 }
 
 function endGame() {
+	/*
 	document.getElementById('gameStartButton').disabled = false;
 	document.getElementById('gameStartButton').innerHTML = 'RESET';
 	document.getElementById('gameStartButton').classList.remove('btn-success')
 	document.getElementById('gameStartButton').classList.add('btn-primary');
+	*/ // CÓDIGO INVALIDADO. MIGRADO PARA startGame() para habilitar reset do jogo durante uma partida.
 }
 
 // Calculates how much time has passed since startGame. Needs to be in the game loop to work properly, but would preferably be in its own independent loop.
@@ -462,7 +468,7 @@ function player1Forward() {
 			player1.x = player1.x + 5;
 		}
 		else if  (oscilator1.onColor == "Red") {
-			player1.x = player1.x - 10;
+			player1.x = player1.x - 20;
 			if (player1.x < 175) {
 				player1.x = 175;
 			}
@@ -483,7 +489,7 @@ function player2Forward() {
 			player2.x = player2.x + 5;
 		}
 		else if  (oscilator2.onColor == "Red") {
-			player2.x = player2.x - 10;
+			player2.x = player2.x - 20;
 			if (player2.x < 175) {
 				player2.x = 175;
 			}

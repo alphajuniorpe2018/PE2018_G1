@@ -43,8 +43,12 @@ body {
 
 #timeElapsedText {
 	position: absolute;
-	left:30px;
+	left:25px;
 	top: 415px;
+}
+
+#timeElapsedIntro {
+	font-weight:bold;
 }
 
 #leaderboardButton {
@@ -70,6 +74,7 @@ body {
 
 .playerResults {
 	font-weight: bold;
+	max-width: 170px;
 }
 
 #roundResultsIntro {
@@ -85,3 +90,22 @@ body {
 	color: #AA2222;
 }
 
+.playerInstructions {
+	font-size: 0.8rem;
+	max-width: 170px;
+	text-align: center;
+}
+
+#player1Instructions {
+	position: absolute;
+	left: 0px;
+	top: 100px;
+	color: #1111AA;
+}
+
+#player2Instructions {
+	position: absolute;
+	left: 630px;
+	top: 100px;
+	color: #AA2222;
+}
