@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 body {
 	background-color:#EEEEFF;
 }
@@ -108,4 +109,44 @@ body {
 	left: 630px;
 	top: 100px;
 	color: #AA2222;
+}
+#soundButtonOn{
+    position:absolute;
+	left:985px;
+}
+#soundButtonOff{
+    position:absolute;
+	left:955px;
+}
+.modal-content{
+ background-color:#868e96;  
+}
+#leaderboardModalHead{
+    color:yellow;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.0rem;
+}
+#leaderboardModal li{
+    color: white;
+    font-size: 0.75rem;
+}
+#soundButtonOn{
+    position:absolute;
+	left:1250px;
+}
+#soundButtonOff{
+    position:absolute;
+	left:1300px;
+}
+.modal-content{
+ background-color:#868e96;  
+}
+#leaderboardModalHead{
+    color:yellow;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.0rem;
+}
+#leaderboardModal li{
+    color: white;
+    font-size: 0.75rem;
 }
