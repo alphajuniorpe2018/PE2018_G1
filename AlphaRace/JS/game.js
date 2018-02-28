@@ -380,12 +380,14 @@ function startGame() {
 		document.getElementById('gameStartButton').classList.remove('btn-success')
 		document.getElementById('gameStartButton').classList.add('btn-primary');
 		gameStarted = true;
+		raceAudio.play();
 		startTime = new Date();
 		gameLoopIntervalID = setInterval(gameLoop, 5);
 		colorLoopIntervalID = setInterval(loopColors, 2000);
 	}
 	else {
 		resetGame();
+		fireworks();
 	}
 }
 
@@ -410,6 +412,7 @@ function resetGame() {
 	oscilator2.x = 659;
 	oscilator1.gear = 0;
 	oscilator2.gear = 0;
+	raceAudio.pause();
 	gameLoop();
 	document.getElementById('timeElapsedClock').innerHTML = '00:00';
 }
@@ -571,6 +574,33 @@ drawPlayer2ColorBox();
 
 window.addEventListener('keydown', checkKeyDown); // used for the checkKeyDown function, which allows players to move
 window.addEventListener('keyup', checkKeyUp); // Used to ensure players won't just hold down the forward key
+
+// Efects
+var raceAudio = document.getElementById("raceOn"); 
+var raceAudioImage = document.getElementsByClassName('fas fa-volume-off');
+ var imageChange = document.getElementById('fireOn');
+function playAudio() { 
+    if(gameEnded == false || gameStarted == true){
+    	raceAudio.play(); 
+    }
+}
+function pauseAudio() { 
+    if(gameEnded == false || gameStarted == true){
+    	raceAudio.pause(); 
+	}   
+}
+function pauseAudioEndGame(){
+	if(player1FinishedRound == true && player2FinishedRound == true){
+    	raceAudio.pause(); 
+	} 
+}
+function fireworks(){
+if(player1FinishedRound == true || player2FinishedRound == true){
+        imageChange.src = "../Images/ColorsFireworks.gif";
+    } else {
+        imageChange.src = "../Images/NoFirework.png";
+    }
+}
 
 function gameLoop() {
 	if (gameEnded == false) {
