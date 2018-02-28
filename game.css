@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+body {
+	background-color:#EEEEFF;
+}
+
+.jumbotron {
+	margin:0;
+	font-size:3rem;
+	padding: 2% 4% 2% 4%;
+	background-color: #DDDDEE;
+	text-align:center;
+}
+
+#gameContainer {
+	position:absolute;
+	left:25vw;
+}
+
+#gameStartButton {
+	position:absolute;
+	left:22.5px;
+	top:480px;
+	height:50px;
+	width:125px;
+	font-size:1.5rem;
+	font-weight:bold;
+	z-index:10;
+}
+
+#gameStartText {
+	position:absolute;
+	left:32px;
+	top:530px;
+	text-align:center;
+	color:white;
+	font-size:0.8rem;
+}
+
+#timeElapsedText, #timeElapsedClock {
+	color:white;
+	text-align:center;
+	font-size:1.2rem;
+}
+
+#timeElapsedText {
+	position: absolute;
+	left:25px;
+	top: 415px;
+}
+
+#timeElapsedIntro {
+	font-weight:bold;
+}
+
+#leaderboardButton {
+	font-size:0.8rem;
+	position:absolute;
+	left: 650px;
+	top:530px;
+	width:130px;
+}
+
+.gameButton {
+	border-radius:25px;
+}
+
+#roundResults {
+	position:absolute;
+	left:644px;
+	top:430px;
+	text-align:center;
+	color:white;
+	font-size:0.75rem;
+}
+
+.playerResults {
+	font-weight: bold;
+	max-width: 170px;
+}
+
+#roundResultsIntro {
+	font-weight:900;
+	font-size:0.9rem;
+}
+
+#player1Results {
+	color: #1111AA;
+}
+
+#player2Results {
+	color: #AA2222;
+}
+
+.playerInstructions {
+	font-size: 0.8rem;
+	max-width: 170px;
+	text-align: center;
+}
+
+#player1Instructions {
+	position: absolute;
+	left: 0px;
+	top: 100px;
+	color: #1111AA;
+}
+
+#player2Instructions {
+	position: absolute;
+	left: 630px;
+	top: 100px;
+	color: #AA2222;
+}
+#soundButtonOn{
+    position:absolute;
+	left:985px;
+}
+#soundButtonOff{
+    position:absolute;
+	left:955px;
+}
+.modal-content{
+ background-color:#868e96;  
+}
+#leaderboardModalHead{
+    color:yellow;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.0rem;
+}
+#leaderboardModal li{
+    color: white;
+    font-size: 0.75rem;
+}
+#soundButtonOn{
+    position:absolute;
+	left:1250px;
+}
+#soundButtonOff{
+    position:absolute;
+	left:1300px;
+}
+.player1Fire{
+    position: absolute;
+    left:180px;
+    top:170px;
+}
+.player2Fire{
+    position: absolute;
+    left:1150px;
+    top:170px; 
+}
+.modal-content{
+ background-color:#868e96;  
+}
+#leaderboardModalHead{
+    color:yellow;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.0rem;
+}
+#leaderboardModal li{
+    color: white;
+    font-size: 0.75rem;
+}
