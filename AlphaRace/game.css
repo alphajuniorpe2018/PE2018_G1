@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+body {
+	background-color:#EEEEFF;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.jumbotron {
+	margin:0;
+	font-size:2rem;
+	padding: 2% 4% 2% 4%;
+	background-color: #DDDDEE;
+	text-align:center;
+}
+
+#gameContainer {
+	position:absolute;
+	left:25vw;
+}
+
+#gameStartButton {
+	position:absolute;
+	left:22.5px;
+	top:470px;
+	height:50px;
+	width:125px;
+	font-size:1.0rem;
+	font-weight:bold;
+	z-index:10;
+}
+
+#gameStartText {
+	position:absolute;
+	left:8px;
+	top:530px;
+	text-align:center;
+	color:white;
+	font-size:0.5rem;
+}
+
+#timeElapsedText, #timeElapsedClock {
+	color:white;
+	text-align:center;
+	font-size:0.7rem;
+}
+
+#timeElapsedText {
+	position: absolute;
+	left:20px;
+	top: 300px;
+}
+
+#timeElapsedIntro {
+	font-weight:bold;
+}
+#scoreSaveButton{
+   	font-size:0.5rem;
+	position:absolute;
+	left: 640px;
+	top:500px;
+	width:150px; 
+}
+#leaderboardButton {
+	font-size:0.5rem;
+	position:absolute;
+	left: 640px;
+	top:530px;
+	width:150px;
+}
+
+.gameButton {
+	border-radius:25px;
+}
+
+#roundResults {
+	position:absolute;
+	left:638px;
+	top:270px;
+	text-align:center;
+	color:white;
+	font-size:0.6rem;
+}
+
+.playerResults {
+	font-weight: bold;
+	max-width: 170px;
+}
+
+#roundResultsIntro {
+	font-weight:900;
+	font-size:0.9rem;
+}
+
+#player1Results {
+	color: #1111AA;
+}
+
+#player2Results {
+	color: #AA2222;
+}
+
+.playerInstructions {
+	font-size: 0.5rem;
+	max-width: 170px;
+	text-align: center;
+}
+
+#player1Instructions {
+	position: absolute;
+	left: 0px;
+	top: 100px;
+	color: #1111AA;
+}
+
+#player2Instructions {
+	position: absolute;
+	left: 630px;
+	top: 100px;
+	color: #AA2222;
+}
+#soundButtonOn{
+    position:absolute;
+	left:985px;
+}
+#soundButtonOff{
+    position:absolute;
+	left:955px;
+}
+.modal-content{
+ background-color:#868e96;
+}
+#scoreSaveHead{
+    color:yellow;
+    font-size: 1.0rem;
+    padding-left: 90px;
+    padding-top: 10px;
+}
+#leaderboardModalHead{
+    color:yellow;
+    font-size: 1.0rem;
+    padding-left: 130px;
+    padding-top: 10px;
+}
+#leaderboardModal li{
+    color: white;
+    font-size: 0.75rem;
+}
+#soundButtonOn{
+    position:absolute;
+	left:1250px;
+}
+#soundButtonOff{
+    position:absolute;
+	left:1300px;
+}
+.player1Fire{
+    position: absolute;
+    left:180px;
+    top:170px;
+}
+.player2Fire{
+    position: absolute;
+    left:1150px;
+    top:170px; 
+}
