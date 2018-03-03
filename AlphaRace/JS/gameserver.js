@@ -1,0 +1,41 @@
+var http = require('http');
+var url = require('url');
+var fs = require('fs');
+
+http.createServer(function (req, res) {
+	var urlPath = url.parse(req.url).pathname; // Gets the URL's pathname
+    var urlPathDotPosition = urlPath.indexOf("."); // Needed for urlPathExtension
+    var urlPathBasename = urlPath.slice(0, urlPathDotPosition); // Unused for now
+    var urlPathExtension = urlPath.slice(urlPathDotPosition + 1); // Needed to return MIME type later
+    var mimeTypes = {
+        html: 'text/html',
+        css: 'text/css',
+        js: 'text/javascript',
+        jpeg: 'image/jpeg',
+        jpg: 'image/jpeg',
+        png: 'image/png',  
+        json: 'application/json'
+    }
+    if (urlPath == '/' || urlPath == '/game.html') {
+        fs.readFile("../HTML/game.html", function(err, data) {
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.write(data);
+            res.end();
+        });
+    }
+    else {
+        if (fs.existsSync('..' + urlPath)) {
+            fs.readFile('..' + urlPath, function(err, data) {
+                res.writeHead(200, {'Content-Type': mimeTypes[urlPathExtension]});
+                res.write(data);
+                res.end();
+            });
+        }
+        else {
+            res.writeHead(404, {'Content-Type': 'text/plain'});
+            res.end('What exactly do you think you\'re trying to access?');
+        }
+
+    }
+}).listen(8080);
+
