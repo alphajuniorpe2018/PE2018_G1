@@ -6,6 +6,7 @@ document.getElementById('gameContainer').appendChild(gameCanvas); // Placing the
 
 // Drawing the background
 function drawBackground() {
+    'use strict';
 	gameCanvasContext.fillStyle = "#808080";
 	gameCanvasContext.fillRect(0,0,800,600); // General background
 	gameCanvasContext.fillStyle = "#B6ACAC";
@@ -376,10 +377,12 @@ var colorLoopIntervalID;
 function startGame() {
 	if (gameStarted == false) {
 		document.getElementById('gameStartButton').disabled = false;
+        document.getElementById('scoreSaveButton').disabled = true;
 		document.getElementById('gameStartButton').innerHTML = 'RESET';
 		document.getElementById('gameStartButton').classList.remove('btn-success')
 		document.getElementById('gameStartButton').classList.add('btn-primary');
 		gameStarted = true;
+		raceAudio.play();
 		startTime = new Date();
 		gameLoopIntervalID = setInterval(gameLoop, 5);
 		colorLoopIntervalID = setInterval(loopColors, 2000);
@@ -392,6 +395,7 @@ function startGame() {
 function resetGame() {
 	document.getElementById('gameStartButton').innerHTML = 'START';
 	document.getElementById('gameStartButton').classList.add('btn-success');
+    document.getElementById('scoreSaveButton').disabled = false;
 	gameStarted = false;
 	gameEnded = false;
 	player1.x = 175;
@@ -410,11 +414,17 @@ function resetGame() {
 	oscilator2.x = 659;
 	oscilator1.gear = 0;
 	oscilator2.gear = 0;
+    raceAudio.pause();
+    fireworksOff1();
+    fireworksOff2();
 	gameLoop();
 	document.getElementById('timeElapsedClock').innerHTML = '00:00';
+
 }
 
 function endGame() {
+    raceAudio.pause();
+    document.getElementById('scoreSaveButton').disabled = false;
 	/*
 	document.getElementById('gameStartButton').disabled = false;
 	document.getElementById('gameStartButton').innerHTML = 'RESET';
@@ -465,7 +475,7 @@ function updateElapsedTimeDisplay() {
 function player1Forward() {
 	if (gameStarted == true) {
 		if (oscilator1.onColor == "White") {
-			player1.x = player1.x + 5;
+			player1.x = player1.x + 200;
 		}
 		else if  (oscilator1.onColor == "Red") {
 			player1.x = player1.x - 20;
@@ -479,6 +489,8 @@ function player1Forward() {
 	}
 	if (player1.x >= 560) {
 		player1.x = 560;
+        fireworks1();
+        fireTimeIsOver1();
 		finishRoundPlayer1();
 	}
 }
@@ -486,7 +498,7 @@ function player1Forward() {
 function player2Forward() {
 	if (gameStarted == true) {
 		if (oscilator2.onColor == "White") {
-			player2.x = player2.x + 5;
+			player2.x = player2.x + 200;
 		}
 		else if  (oscilator2.onColor == "Red") {
 			player2.x = player2.x - 20;
@@ -500,6 +512,8 @@ function player2Forward() {
 	}
 	if (player2.x >= 560) {
 		player2.x = 560;
+        fireworks2();
+        fireTimeIsOver2();
 		finishRoundPlayer2();
 	}
 }
@@ -571,6 +585,50 @@ drawPlayer2ColorBox();
 
 window.addEventListener('keydown', checkKeyDown); // used for the checkKeyDown function, which allows players to move
 window.addEventListener('keyup', checkKeyUp); // Used to ensure players won't just hold down the forward key
+
+// Effects
+var raceAudio = document.getElementById("raceOn"); 
+var raceAudioImage = document.getElementsByClassName('fas fa-volume-off');
+var imageChange1 = document.getElementById('fireOn1');
+var imageChange2 = document.getElementById('fireOn2');
+function playAudio() { 
+    if(gameEnded == false && gameStarted == true){
+    	raceAudio.play(); 
+    }
+}
+function pauseAudio() { 
+    if(gameEnded == false && gameStarted == true){
+    	raceAudio.pause(); 
+	}   
+}
+
+function fireworks1(){
+if(imageChange1.style.display == "none"){
+        imageChange1.style.display = "block";
+    }
+}
+
+function fireworks2(){
+if(imageChange2.style.display == "none"){
+        imageChange2.style.display = "block";
+    }
+}
+function fireTimeIsOver1() {
+    var timeOver1 = setTimeout(fireworksOff1, 3000);
+}
+function fireTimeIsOver2() {
+    var timeOver2 = setTimeout(fireworksOff2, 3000);
+}
+function fireworksOff1(){
+if(imageChange1.style.display == "block"){
+        imageChange1.style.display = "none";
+    }
+}
+function fireworksOff2(){
+if(imageChange2.style.display == "block"){
+        imageChange2.style.display = "none";
+    }
+}
 
 function gameLoop() {
 	if (gameEnded == false) {
