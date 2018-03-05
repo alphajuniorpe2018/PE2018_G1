@@ -175,7 +175,26 @@ body {
 }
 
 .formSubmitButton {
-    margin:25px 0 0 0;
+    margin:25px 0 15px 0;
     font-size:1.3rem;
     padding:10px;
+}
+
+#saveScoresAlert {
+    width:900px;
+    text-align:center;
+    position:absolute;
+    left:22vw;
+    top:720px;
+    display:none;
+}
+
+button:focus {
+    outline:0;
+}
+
+#submitPlayerScoresFail {
+    display:none;
+    color: darkred;
+    text-align:center;
 }

@@ -2,12 +2,12 @@
     "scores": [
         {
             "player": "leo",
-            "score": "8s",
+            "score": 8,
             "date": "02/25/2018"
         },
         {
             "player": "barbara",
-            "score": "5s",
+            "score": 5,
             "date": "02/26/2018"
         }
     ]

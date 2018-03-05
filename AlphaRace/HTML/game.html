@@ -30,9 +30,13 @@
                 				<button type="button" class="close" data-dismiss="modal">&times;</button>
             				</div>
             				<div class="modal-body">
-						<li>
-							<ol> </ol>
-						</li>
+                                <ol id="leaderboardList">
+                                    <li id="leaderboardRank1" class="leaderboardRank"> </li>
+                                    <li id="leaderboardRank2" class="leaderboardRank"> </li>
+                                    <li id="leaderboardRank3" class="leaderboardRank"> </li>
+                                    <li id="leaderboardRank4" class="leaderboardRank"> </li>
+                                    <li id="leaderboardRank5" class="leaderboardRank"> </li>
+                                </ol>
                             </div>
            			 </div>
             		</div>
@@ -45,11 +49,12 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<div class="modal-body">
-						<form class="d-flex flex-column">
+						<form class="d-flex flex-column" id="saveScoresForm">
                             <label for="player1Name" class="saveScoresInputLabel">Player 1:</label><input type="text" class="form-control saveScoresInput" id="player1Name" name="player1Name" maxlength="16">
                             <label for="player2Name" class="saveScoresInputLabel">Player 2:</label><input type="text" class="form-control saveScoresInput" id="player2Name" name="player1Name" maxlength="16">
                             <button type="submit" id="submitPlayerScores" class="gameButton formSubmitButton btn-success align-self-center">Submit!</button>
                         </form>
+                        <span id="submitPlayerScoresFail">All player names must be at least three characters long.</span>
 					</div>
 				</div>
 			</div>
@@ -62,6 +67,12 @@
 		<button type="button" id="soundButtonOn" class="gameButton soundButton" onclick="playAudio()"><i class="fas fa-volume-up"></i></button>
 		<img id="fireOn1" class="player1Fire" src="../Images/ColorsFireworks.gif" width="150" height="180" style="display:none;">
 		<img id="fireOn2" class="player2Fire" src="../Images/ColorsFireworks.gif" width="150" height="180" style="display:none;">
+        <div class="alert alert-success" id="saveScoresAlert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Your scores have been saved successfully.
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>

@@ -418,7 +418,6 @@ function resetGame() {
     fireworksOff2();
 	gameLoop();
 	document.getElementById('timeElapsedClock').innerHTML = '00:00';
-
 }
 
 function endGame() {
@@ -429,7 +428,7 @@ function endGame() {
 	document.getElementById('gameStartButton').innerHTML = 'RESET';
 	document.getElementById('gameStartButton').classList.remove('btn-success')
 	document.getElementById('gameStartButton').classList.add('btn-primary');
-	*/ // CÓDIGO INVALIDADO. MIGRADO PARA startGame() para habilitar reset do jogo durante uma partida.
+	*/ // INVALIDATED CODE. MIGRATED TO startGame().
 }
 
 // Calculates how much time has passed since startGame. Needs to be in the game loop to work properly, but would preferably be in its own independent loop.
@@ -565,25 +564,33 @@ function checkKeyUp(evt) {
 	else if (evt.keyCode == 39) {
 		player1KeyDown = false;
 	}
+    else if (evt.keyCode == 13) {
+		startGame();
+	}
 }
 
+var submitScores = document.getElementById('submitPlayerScores');
+submitScores.addEventListener('click', function(){
+    document.getElementById('player1Name').style.borderColor = 'green';
+    document.getElementById('player2Name').style.borderColor = 'green';
+    var player1Name = document.getElementById('player1Name').value;
+    var player2Name = document.getElementById('player2Name').value;
+    if (player1Name.length >= 3 && player2Name.length >= 3) {
+        document.getElementById('saveScoresAlert').style.display = 'block';
+        $('#scoreSaveModal').modal('hide');
+    }
+    else if (player1Name.length < 3) {
+        document.getElementById('player1Name').style.borderColor = 'red';
+        document.getElementById('submitPlayerScoresFail').style.display = 'block';
+    }
+    else if (player2Name.length < 3) {
+        document.getElementById('player2Name').style.borderColor = 'red';
+    }
+});
 
-
-// Executing necessary functions, event listeners and stating game loop 
-
-drawBackground();
-drawGauges();
-drawOscilator1();
-drawOscilator2();
-player1Sprite.onload = drawPlayer1;
-player2Sprite.onload = drawPlayer2;
-updatePlayer1ColorBox();
-drawPlayer1ColorBox();
-updatePlayer2ColorBox();
-drawPlayer2ColorBox();
-
-window.addEventListener('keydown', checkKeyDown); // used for the checkKeyDown function, which allows players to move
-window.addEventListener('keyup', checkKeyUp); // Used to ensure players won't just hold down the forward key
+document.getElementById('saveScoresForm').addEventListener('submit', function(evt) {
+    evt.preventDefault();
+});
 
 // Effects
 var raceAudio = document.getElementById("raceOn"); 
@@ -628,6 +635,22 @@ function fireworksOff2(){
             imageChange2.style.display = "none";
     }
 }
+
+// Executing necessary functions, event listeners and stating game loop 
+
+drawBackground();
+drawGauges();
+drawOscilator1();
+drawOscilator2();
+player1Sprite.onload = drawPlayer1;
+player2Sprite.onload = drawPlayer2;
+updatePlayer1ColorBox();
+drawPlayer1ColorBox();
+updatePlayer2ColorBox();
+drawPlayer2ColorBox();
+
+window.addEventListener('keydown', checkKeyDown); // used for the checkKeyDown function, which allows players to move
+window.addEventListener('keyup', checkKeyUp); // Used to ensure players won't just hold down the forward key
 
 function gameLoop() {
 	if (gameEnded == false) {
