@@ -3,13 +3,9 @@
 
 	<head>
 		<title> Alpha Junior Trainee Project - Bárbara & Léo </title>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 		<link rel="stylesheet" href="../CSS/game.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1s.0">
-		<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	</head>
 
 	<body>
@@ -24,7 +20,7 @@
 			<span id="gameStartText">Click or press Enter<br>to start </span> <!-- Start button's info text -->
 			<button type="button" id="scoreSaveButton" class="btn btn-info gameButton" data-toggle="modal" data-target="#scoreSaveModal"> Save Scores </button> <!-- Players Score Save button -->
 			<button type="button" id="leaderboardButton" class="btn btn-info gameButton" data-toggle="modal" data-target="#leaderboardModal"> See Leaderboards </button> <!-- Leaderboard button -->
-			<span id="roundResults"> <span id="roundResultsIntro">This round's results:</span><br>Player 1 finished in:<br><span id="player1Results" class="playerResults">--</span><br>Player 2 finished in:<br><span id="player2Results" class="playerResults">--</span></span> <!-- Round's results text -->
+			<span id="roundResults"> <span id="roundResultsIntro">This round's results:</span><br>Player 1 finished in:<br><span id="player1Results" class="playerResults player1Results">--</span><br>Player 2 finished in:<br><span id="player2Results" class="playerResults player2Results">--</span></span> <!-- Round's results text -->
 		</main>
 		<div class="modal fade" id="leaderboardModal" role="dialog"> <!-- Leaderboard modal-->
 			<div class="modal-dialog"> <!-- size -->
@@ -37,7 +33,7 @@
 						<li>
 							<ol> </ol>
 						</li>
-            <				/div>
+                            </div>
            			 </div>
             		</div>
 		</div>
@@ -49,9 +45,11 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<div class="modal-body">
-						<li>
-							<ol> </ol>
-						</li>
+						<form class="d-flex flex-column">
+                            <label for="player1Name" class="saveScoresInputLabel">Player 1: <span class="playerResults player1Results">--</span></label><input type="text" class="form-control saveScoresInput" id="player1Name" name="player1Name" maxlength="16">
+                            <label for="player2Name" class="saveScoresInputLabel">Player 2: <span class="playerResults player2Results">--</span></label><input type="text" class="form-control saveScoresInput" id="player2Name" name="player1Name" maxlength="16">
+                            <button type="submit" id="submitPlayerScores" class="gameButton formSubmitButton btn-success align-self-center">Submit!</button>
+                        </form>
 					</div>
 				</div>
 			</div>
@@ -64,7 +62,12 @@
 		<button type="button" id="soundButtonOn" class="gameButton soundButton" onclick="playAudio()"><i class="fas fa-volume-up"></i></button>
 		<img id="fireOn1" class="player1Fire" src="../Images/ColorsFireworks.gif" width="150" height="180" style="display:none;">
 		<img id="fireOn2" class="player2Fire" src="../Images/ColorsFireworks.gif" width="150" height="180" style="display:none;">
-		<script type="text/javascript" src="../JS/game.js"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="../JS/game.js"> </script>
+        <script type="text/javascript" src="../JS/gamescores.js"> </script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	</body>
 
 </html>
