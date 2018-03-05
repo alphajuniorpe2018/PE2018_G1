@@ -14,7 +14,9 @@ http.createServer(function (req, res) {
         jpeg: 'image/jpeg',
         jpg: 'image/jpeg',
         png: 'image/png',  
-        json: 'application/json'
+        json: 'application/json',
+        gif: 'image/gif',
+        m4a: 'audio/m4a',
     }
     if (urlPath == '/' || urlPath == '/game.html') {
         fs.readFile("../HTML/game.html", function(err, data) {
@@ -30,6 +32,13 @@ http.createServer(function (req, res) {
                 res.write(data);
                 res.end();
             });
+        }
+        else if (urlPath == '/Audio/videoplayback.oggvorbis.ogg') {
+            fs.readFile('../Audio/videoplayback.oggvorbis.ogg', function(err, data) {
+                res.writeHead(200, {'Content-Type': 'application/ogg'});
+                res.write(data);
+                res.end();
+            }); // Had to serve this file under it's own condition due to it's unusual extension name. Not sure how to include '.' in an item name in JS.
         }
         else {
             res.writeHead(404, {'Content-Type': 'text/plain'});

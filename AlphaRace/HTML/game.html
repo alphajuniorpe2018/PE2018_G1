@@ -33,7 +33,7 @@
 						<li>
 							<ol> </ol>
 						</li>
-            <				/div>
+                            </div>
            			 </div>
             		</div>
 		</div>
@@ -45,9 +45,11 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<div class="modal-body">
-						<li>
-							<ol> </ol>
-						</li>
+						<form class="d-flex flex-column">
+                            <label for="player1Name" class="saveScoresInputLabel">Player 1:</label><input type="text" class="form-control saveScoresInput" id="player1Name" name="player1Name" maxlength="16">
+                            <label for="player2Name" class="saveScoresInputLabel">Player 2:</label><input type="text" class="form-control saveScoresInput" id="player2Name" name="player1Name" maxlength="16">
+                            <button type="submit" id="submitPlayerScores" class="gameButton formSubmitButton btn-success align-self-center">Submit!</button>
+                        </form>
 					</div>
 				</div>
 			</div>

@@ -6,7 +6,6 @@ document.getElementById('gameContainer').appendChild(gameCanvas); // Placing the
 
 // Drawing the background
 function drawBackground() {
-    'use strict';
 	gameCanvasContext.fillStyle = "#808080";
 	gameCanvasContext.fillRect(0,0,800,600); // General background
 	gameCanvasContext.fillStyle = "#B6ACAC";
@@ -603,14 +602,14 @@ function pauseAudio() {
 }
 
 function fireworks1(){
-if(imageChange1.style.display == "none"){
-        imageChange1.style.display = "block";
+    if(imageChange1.style.display == "none"){
+            imageChange1.style.display = "block";
     }
 }
 
 function fireworks2(){
-if(imageChange2.style.display == "none"){
-        imageChange2.style.display = "block";
+    if(imageChange2.style.display == "none"){
+            imageChange2.style.display = "block";
     }
 }
 function fireTimeIsOver1() {
@@ -620,13 +619,13 @@ function fireTimeIsOver2() {
     var timeOver2 = setTimeout(fireworksOff2, 3000);
 }
 function fireworksOff1(){
-if(imageChange1.style.display == "block"){
-        imageChange1.style.display = "none";
+    if(imageChange1.style.display == "block"){
+            imageChange1.style.display = "none";
     }
 }
 function fireworksOff2(){
-if(imageChange2.style.display == "block"){
-        imageChange2.style.display = "none";
+    if(imageChange2.style.display == "block"){
+            imageChange2.style.display = "none";
     }
 }
 

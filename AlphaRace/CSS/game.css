@@ -121,51 +121,61 @@ body {
 	color: #AA2222;
 	padding-left: 14px;
 }
-#soundButtonOn{
+#soundButtonOn {
 	position:absolute;
 	left:985px;
 }
-#soundButtonOff{
+#soundButtonOff {
 	position:absolute;
 	left:955px;
 }
-.modal-content{
+.modal-content {
 	background-color:#868e96;
 }
-#scoreSaveHead{
+#scoreSaveHead {
 	color:yellow;
 	font-size: 1.0rem;
 	padding-left: 90px;
 	padding-top: 10px;
 }
-#leaderboardModalHead{
+#leaderboardModalHead {
 	color:yellow;
 	font-size: 1.0rem;
 	padding-left: 130px;
 	padding-top: 10px;
 }
-#leaderboardModal li{
+#leaderboardModal li {
 	color: white;
 	font-size: 0.75rem;
 }
-#soundButtonOn{
+#soundButtonOn {
 	position:absolute;
 	left:calc(820px + 28vw);
 }
-#soundButtonOff{
+#soundButtonOff {
 	position:absolute;
 	left:calc(800px + 26vw);
 }
 .soundButton:focus {
 	outline:0;
 }
-.player1Fire{
+.player1Fire {
 	position: absolute;
 	left:10vw;
 	top:20vh;
 }
-.player2Fire{
+.player2Fire {
 	position: absolute;
 	left:calc(28vw + 800px);
 	top:20vh; 
+}
+
+.saveScoresInputLabel {
+    padding:10px 0px 0px 0px;
+}
+
+.formSubmitButton {
+    margin:25px 0 0 0;
+    font-size:1.3rem;
+    padding:10px;
 }
