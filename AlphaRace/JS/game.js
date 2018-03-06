@@ -475,7 +475,7 @@ function updateElapsedTimeDisplay() {
 function player1Forward() {
 	if (gameStarted == true) {
 		if (oscilator1.onColor == "White") {
-			player1.x = player1.x + 200;
+			player1.x = player1.x + 15;
 		}
 		else if  (oscilator1.onColor == "Red") {
 			player1.x = player1.x - 20;
@@ -484,7 +484,7 @@ function player1Forward() {
 			}
 		}
 		else if  (oscilator1.onColor == "Green") {
-			player1.x = player1.x + 20;
+			player1.x = player1.x + 25;
 		}
 	}
 	if (player1.x >= 560) {
@@ -498,7 +498,7 @@ function player1Forward() {
 function player2Forward() {
 	if (gameStarted == true) {
 		if (oscilator2.onColor == "White") {
-			player2.x = player2.x + 200;
+			player2.x = player2.x + 15;
 		}
 		else if  (oscilator2.onColor == "Red") {
 			player2.x = player2.x - 20;
@@ -507,7 +507,7 @@ function player2Forward() {
 			}
 		}
 		else if  (oscilator2.onColor == "Green") {
-			player2.x = player2.x + 20;
+			player2.x = player2.x + 25;
 		}
 	}
 	if (player2.x >= 560) {

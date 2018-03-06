@@ -17,6 +17,7 @@ http.createServer(function (req, res) {
         json: 'application/json',
         gif: 'image/gif',
         m4a: 'audio/m4a',
+        mp3: 'audio/mp3'
     }
     if (urlPath == '/' || urlPath == '/game.html') {
         fs.readFile("../HTML/game.html", function(err, data) {
