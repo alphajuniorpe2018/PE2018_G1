@@ -90,6 +90,8 @@ body {
 #roundResultsIntro {
 	font-weight:900;
 	font-size:0.7rem;
+    display: inline-block;
+    margin: 3px;
 }
 
 #player1Results {
@@ -197,4 +199,13 @@ button:focus {
     display:none;
     color: darkred;
     text-align:center;
+    margin:25px 0 0 0;
+    font-size:1.3rem;
+    padding:10px;
+}
+.player1Results{
+    color: #1111AA;
+}
+.player2Results{
+    color: #AA2222;
 }

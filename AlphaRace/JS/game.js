@@ -414,6 +414,7 @@ function resetGame() {
 	oscilator1.gear = 0;
 	oscilator2.gear = 0;
     raceAudio.pause();
+    raceAudio.currentTime = 0;
     fireworksOff1();
     fireworksOff2();
 	gameLoop();
@@ -526,17 +527,24 @@ function finishRoundPlayer1() {
 	player1FinishedRound = true;
 	player1FinishTime = elapsedTime;
 	document.getElementById('player1Results').innerHTML = player1FinishTime.toString().slice(0,-1) + '&nbsp;secs';
+    var player1Results = document.getElementsByClassName('player1Results');
+    for(var i =0; i<player1Results.length; i++){
+        player1Results[i].innerHTML = player1FinishTime.toString().slice(0,-1) + '&nbsp;secs';
+    }
 	if (player2FinishedRound == true) {
 		gameLoop(); // Need to draw one last time so that the 2nd place is updated and drawn again. Without this, the 2nd place will stand a few pixels behind the 1st, instead of over the finish line.
 		gameEnded = true;
 		endGame();
 	}
 }
-
 function finishRoundPlayer2() {
 	player2FinishedRound = true;
 	player2FinishTime = elapsedTime;
 	document.getElementById('player2Results').innerHTML = player2FinishTime.toString().slice(0,-1) + '&nbsp;secs';
+    var player2Results = document.getElementsByClassName('player2Results');
+    for(var i =0; i<player2Results.length; i++){
+        player2Results[i].innerHTML = player2FinishTime.toString().slice(0,-1) + '&nbsp;secs';
+    }
 	if (player1FinishedRound == true) {
 		gameLoop();
 		gameEnded = true;
