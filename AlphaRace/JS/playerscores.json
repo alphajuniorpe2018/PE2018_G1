@@ -2,13 +2,38 @@
     "scores": [
         {
             "player": "leo",
-            "score": 8,
+            "score": 56,
             "date": "02/25/2018"
         },
         {
             "player": "barbara",
-            "score": 5,
+            "score": 9,
             "date": "02/26/2018"
+        },
+        {
+            "player": "Teste",
+            "score": 12,
+            "date": "02/25/2018"
+        },
+        {
+            "player": "123",
+            "score": 7,
+            "date": "02/25/2018"
+        },
+        {
+            "player": "abc",
+            "score": 6,
+            "date": "02/25/2018"
+        },
+        {
+            "player": "leo",
+            "score": 15,
+            "date": "02/25/2018"
+        },
+        {
+            "player": "leo",
+            "score": 9,
+            "date": "02/25/2018"
         }
     ]
 }

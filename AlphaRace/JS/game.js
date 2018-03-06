@@ -418,6 +418,7 @@ function resetGame() {
     fireworksOff2();
 	gameLoop();
 	document.getElementById('timeElapsedClock').innerHTML = '00:00';
+    document.getElementById('scoreSaveButton').disabled = true;
 }
 
 function endGame() {
@@ -578,6 +579,7 @@ submitScores.addEventListener('click', function(){
     if (player1Name.length >= 3 && player2Name.length >= 3) {
         document.getElementById('saveScoresAlert').style.display = 'block';
         $('#scoreSaveModal').modal('hide');
+        saveScores(); // This function is defined @ gamescores.js
     }
     else if (player1Name.length < 3) {
         document.getElementById('player1Name').style.borderColor = 'red';
@@ -648,6 +650,7 @@ updatePlayer1ColorBox();
 drawPlayer1ColorBox();
 updatePlayer2ColorBox();
 drawPlayer2ColorBox();
+document.getElementById('scoreSaveButton').disabled = true;
 
 window.addEventListener('keydown', checkKeyDown); // used for the checkKeyDown function, which allows players to move
 window.addEventListener('keyup', checkKeyUp); // Used to ensure players won't just hold down the forward key

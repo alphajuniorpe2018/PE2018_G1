@@ -40,9 +40,20 @@ http.createServer(function (req, res) {
                 res.end();
             }); // Had to serve this file under it's own condition due to it's unusual extension name. Not sure how to include '.' in an item name in JS.
         }
+        else if (urlPath == '/JS/savescores.js') {
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.write('Scores posted.');
+            res.end();
+            console.log("JSON Posted from client. Receiving...");
+            req.on('data', function(data) {
+                console.log("JSON Received:" + data);
+                
+            });
+        }
         else {
             res.writeHead(404, {'Content-Type': 'text/plain'});
             res.end('What exactly do you think you\'re trying to access?');
+            console.log("Invalid request");
         }
 
     }
