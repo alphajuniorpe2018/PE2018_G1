@@ -47,7 +47,7 @@ http.createServer(function (req, res) {
             console.log("JSON Posted from client. Receiving...");
             req.on('data', function(data) {
                 console.log("JSON Received:" + data);
-                
+                fs.writeFile('playerscores.json', data);
             });
         }
         else {
